@@ -109,6 +109,17 @@ public class GameEngine {
 		board.getPlaces().get(1).addChecker(c);
 		return 0;
 	}
+	public Integer onClickRoleDice(double x, double y)
+	{
+		dice.role();
+		HumanDice = dice;
+		System.out.println("hit!");
+		Checker c = board.getPlaces().get(5).removeChecker();
+		board.getPlaces().get(1).addChecker(c);
+		if(x>100 && x <600 && y< 300)
+			System.out.println("hello world!");
+		return 0;
+	}
 	public Integer onClickRoleSingleDice()
 	{
 		dice.roleSingleNumber();
@@ -174,7 +185,7 @@ public class GameEngine {
 	{
 		onClick = new Call<Integer>(){
 			public Integer call(double x, double y) {
-				return onClickRoleDice();
+				return onClickRoleDice(x, y);
 			}
 			public Integer call(){
 				return onClickRoleDice();
